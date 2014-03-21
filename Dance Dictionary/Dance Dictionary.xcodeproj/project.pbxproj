@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D734F83B18C3CB0800B2BF32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D734F83A18C3CB0800B2BF32 /* Foundation.framework */; };
+		D734F83D18C3CB0800B2BF32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D734F83C18C3CB0800B2BF32 /* CoreGraphics.framework */; };
+		D734F83F18C3CB0800B2BF32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D734F83E18C3CB0800B2BF32 /* UIKit.framework */; };
+		D734F84118C3CB0800B2BF32 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D734F84018C3CB0800B2BF32 /* CoreData.framework */; };
+		D734F84718C3CB0800B2BF32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D734F84518C3CB0800B2BF32 /* InfoPlist.strings */; };
+		D734F84918C3CB0800B2BF32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F84818C3CB0800B2BF32 /* main.m */; };
+		D734F84D18C3CB0800B2BF32 /* DD_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F84C18C3CB0800B2BF32 /* DD_AppDelegate.m */; };
+		D734F85018C3CB0800B2BF32 /* Dance_Dictionary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D734F84E18C3CB0800B2BF32 /* Dance_Dictionary.xcdatamodeld */; };
+		D734F85218C3CB0800B2BF32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D734F85118C3CB0800B2BF32 /* Images.xcassets */; };
+		D734F85918C3CB0800B2BF32 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D734F85818C3CB0800B2BF32 /* XCTest.framework */; };
+		D734F85A18C3CB0800B2BF32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D734F83A18C3CB0800B2BF32 /* Foundation.framework */; };
+		D734F85B18C3CB0800B2BF32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D734F83E18C3CB0800B2BF32 /* UIKit.framework */; };
+		D734F85C18C3CB0800B2BF32 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D734F84018C3CB0800B2BF32 /* CoreData.framework */; };
+		D734F86418C3CB0800B2BF32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D734F86218C3CB0800B2BF32 /* InfoPlist.strings */; };
+		D734F86618C3CB0800B2BF32 /* Dance_DictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F86518C3CB0800B2BF32 /* Dance_DictionaryTests.m */; };
+		D734F87018C3CB2A00B2BF32 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D734F86F18C3CB2A00B2BF32 /* iPhone.storyboard */; };
+		D734F87218C3CB3600B2BF32 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D734F87118C3CB3600B2BF32 /* iPad.storyboard */; };
+		D734F87518C4DD3600B2BF32 /* DD_BalletTermsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F87418C4DD3600B2BF32 /* DD_BalletTermsTableViewController.m */; };
+		D734F87918C4DDE900B2BF32 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F87818C4DDE900B2BF32 /* Reachability.m */; };
+		D734F87D18C4DE9A00B2BF32 /* DD_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F87C18C4DE9A00B2BF32 /* DD_MainViewController.m */; };
+		D734F88018C4E03C00B2BF32 /* Term.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F87F18C4E03C00B2BF32 /* Term.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D734F85D18C3CB0800B2BF32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D734F82F18C3CB0800B2BF32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D734F83618C3CB0800B2BF32;
+			remoteInfo = "Dance Dictionary";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D734F83718C3CB0800B2BF32 /* Dance Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dance Dictionary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D734F83A18C3CB0800B2BF32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D734F83C18C3CB0800B2BF32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D734F83E18C3CB0800B2BF32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D734F84018C3CB0800B2BF32 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D734F84418C3CB0800B2BF32 /* Dance Dictionary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Dance Dictionary-Info.plist"; sourceTree = "<group>"; };
+		D734F84618C3CB0800B2BF32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D734F84818C3CB0800B2BF32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D734F84A18C3CB0800B2BF32 /* Dance Dictionary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dance Dictionary-Prefix.pch"; sourceTree = "<group>"; };
+		D734F84B18C3CB0800B2BF32 /* DD_AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DD_AppDelegate.h; sourceTree = "<group>"; };
+		D734F84C18C3CB0800B2BF32 /* DD_AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DD_AppDelegate.m; sourceTree = "<group>"; };
+		D734F84F18C3CB0800B2BF32 /* Dance_Dictionary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dance_Dictionary.xcdatamodel; sourceTree = "<group>"; };
+		D734F85118C3CB0800B2BF32 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D734F85718C3CB0800B2BF32 /* Dance DictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dance DictionaryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D734F85818C3CB0800B2BF32 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D734F86118C3CB0800B2BF32 /* Dance DictionaryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Dance DictionaryTests-Info.plist"; sourceTree = "<group>"; };
+		D734F86318C3CB0800B2BF32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D734F86518C3CB0800B2BF32 /* Dance_DictionaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dance_DictionaryTests.m; sourceTree = "<group>"; };
+		D734F86F18C3CB2A00B2BF32 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		D734F87118C3CB3600B2BF32 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = ../iPad.storyboard; sourceTree = "<group>"; };
+		D734F87318C4DD3600B2BF32 /* DD_BalletTermsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DD_BalletTermsTableViewController.h; sourceTree = "<group>"; };
+		D734F87418C4DD3600B2BF32 /* DD_BalletTermsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_BalletTermsTableViewController.m; sourceTree = "<group>"; };
+		D734F87718C4DDE900B2BF32 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		D734F87818C4DDE900B2BF32 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		D734F87B18C4DE9A00B2BF32 /* DD_MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DD_MainViewController.h; sourceTree = "<group>"; };
+		D734F87C18C4DE9A00B2BF32 /* DD_MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_MainViewController.m; sourceTree = "<group>"; };
+		D734F87E18C4E03C00B2BF32 /* Term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Term.h; sourceTree = "<group>"; };
+		D734F87F18C4E03C00B2BF32 /* Term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Term.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D734F83418C3CB0800B2BF32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D734F83D18C3CB0800B2BF32 /* CoreGraphics.framework in Frameworks */,
+				D734F84118C3CB0800B2BF32 /* CoreData.framework in Frameworks */,
+				D734F83F18C3CB0800B2BF32 /* UIKit.framework in Frameworks */,
+				D734F83B18C3CB0800B2BF32 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D734F85418C3CB0800B2BF32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D734F85918C3CB0800B2BF32 /* XCTest.framework in Frameworks */,
+				D734F85C18C3CB0800B2BF32 /* CoreData.framework in Frameworks */,
+				D734F85B18C3CB0800B2BF32 /* UIKit.framework in Frameworks */,
+				D734F85A18C3CB0800B2BF32 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D734F82E18C3CB0800B2BF32 = {
+			isa = PBXGroup;
+			children = (
+				D734F84218C3CB0800B2BF32 /* Dance Dictionary */,
+				D734F85F18C3CB0800B2BF32 /* Dance DictionaryTests */,
+				D734F83918C3CB0800B2BF32 /* Frameworks */,
+				D734F83818C3CB0800B2BF32 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D734F83818C3CB0800B2BF32 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D734F83718C3CB0800B2BF32 /* Dance Dictionary.app */,
+				D734F85718C3CB0800B2BF32 /* Dance DictionaryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D734F83918C3CB0800B2BF32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D734F83A18C3CB0800B2BF32 /* Foundation.framework */,
+				D734F83C18C3CB0800B2BF32 /* CoreGraphics.framework */,
+				D734F83E18C3CB0800B2BF32 /* UIKit.framework */,
+				D734F84018C3CB0800B2BF32 /* CoreData.framework */,
+				D734F85818C3CB0800B2BF32 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D734F84218C3CB0800B2BF32 /* Dance Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				D734F87118C3CB3600B2BF32 /* iPad.storyboard */,
+				D734F86F18C3CB2A00B2BF32 /* iPhone.storyboard */,
+				D734F84E18C3CB0800B2BF32 /* Dance_Dictionary.xcdatamodeld */,
+				D734F87618C4DD3D00B2BF32 /* Controllers */,
+				D734F88118C4E04500B2BF32 /* Entities */,
+				D734F87A18C4DDEE00B2BF32 /* Utilities */,
+				D734F84318C3CB0800B2BF32 /* Supporting Files */,
+			);
+			path = "Dance Dictionary";
+			sourceTree = "<group>";
+		};
+		D734F84318C3CB0800B2BF32 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D734F85118C3CB0800B2BF32 /* Images.xcassets */,
+				D734F84418C3CB0800B2BF32 /* Dance Dictionary-Info.plist */,
+				D734F84518C3CB0800B2BF32 /* InfoPlist.strings */,
+				D734F84818C3CB0800B2BF32 /* main.m */,
+				D734F84A18C3CB0800B2BF32 /* Dance Dictionary-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D734F85F18C3CB0800B2BF32 /* Dance DictionaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				D734F86518C3CB0800B2BF32 /* Dance_DictionaryTests.m */,
+				D734F86018C3CB0800B2BF32 /* Supporting Files */,
+			);
+			path = "Dance DictionaryTests";
+			sourceTree = "<group>";
+		};
+		D734F86018C3CB0800B2BF32 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D734F86118C3CB0800B2BF32 /* Dance DictionaryTests-Info.plist */,
+				D734F86218C3CB0800B2BF32 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D734F87618C4DD3D00B2BF32 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D734F84B18C3CB0800B2BF32 /* DD_AppDelegate.h */,
+				D734F84C18C3CB0800B2BF32 /* DD_AppDelegate.m */,
+				D734F87318C4DD3600B2BF32 /* DD_BalletTermsTableViewController.h */,
+				D734F87418C4DD3600B2BF32 /* DD_BalletTermsTableViewController.m */,
+				D734F87B18C4DE9A00B2BF32 /* DD_MainViewController.h */,
+				D734F87C18C4DE9A00B2BF32 /* DD_MainViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D734F87A18C4DDEE00B2BF32 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D734F87718C4DDE900B2BF32 /* Reachability.h */,
+				D734F87818C4DDE900B2BF32 /* Reachability.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		D734F88118C4E04500B2BF32 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				D734F87E18C4E03C00B2BF32 /* Term.h */,
+				D734F87F18C4E03C00B2BF32 /* Term.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D734F83618C3CB0800B2BF32 /* Dance Dictionary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D734F86918C3CB0800B2BF32 /* Build configuration list for PBXNativeTarget "Dance Dictionary" */;
+			buildPhases = (
+				D734F83318C3CB0800B2BF32 /* Sources */,
+				D734F83418C3CB0800B2BF32 /* Frameworks */,
+				D734F83518C3CB0800B2BF32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dance Dictionary";
+			productName = "Dance Dictionary";
+			productReference = D734F83718C3CB0800B2BF32 /* Dance Dictionary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D734F85618C3CB0800B2BF32 /* Dance DictionaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D734F86C18C3CB0800B2BF32 /* Build configuration list for PBXNativeTarget "Dance DictionaryTests" */;
+			buildPhases = (
+				D734F85318C3CB0800B2BF32 /* Sources */,
+				D734F85418C3CB0800B2BF32 /* Frameworks */,
+				D734F85518C3CB0800B2BF32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D734F85E18C3CB0800B2BF32 /* PBXTargetDependency */,
+			);
+			name = "Dance DictionaryTests";
+			productName = "Dance DictionaryTests";
+			productReference = D734F85718C3CB0800B2BF32 /* Dance DictionaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D734F82F18C3CB0800B2BF32 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DD_;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = AppGuys;
+				TargetAttributes = {
+					D734F85618C3CB0800B2BF32 = {
+						TestTargetID = D734F83618C3CB0800B2BF32;
+					};
+				};
+			};
+			buildConfigurationList = D734F83218C3CB0800B2BF32 /* Build configuration list for PBXProject "Dance Dictionary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D734F82E18C3CB0800B2BF32;
+			productRefGroup = D734F83818C3CB0800B2BF32 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D734F83618C3CB0800B2BF32 /* Dance Dictionary */,
+				D734F85618C3CB0800B2BF32 /* Dance DictionaryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D734F83518C3CB0800B2BF32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D734F87218C3CB3600B2BF32 /* iPad.storyboard in Resources */,
+				D734F84718C3CB0800B2BF32 /* InfoPlist.strings in Resources */,
+				D734F87018C3CB2A00B2BF32 /* iPhone.storyboard in Resources */,
+				D734F85218C3CB0800B2BF32 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D734F85518C3CB0800B2BF32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D734F86418C3CB0800B2BF32 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D734F83318C3CB0800B2BF32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D734F84D18C3CB0800B2BF32 /* DD_AppDelegate.m in Sources */,
+				D734F87D18C4DE9A00B2BF32 /* DD_MainViewController.m in Sources */,
+				D734F84918C3CB0800B2BF32 /* main.m in Sources */,
+				D734F85018C3CB0800B2BF32 /* Dance_Dictionary.xcdatamodeld in Sources */,
+				D734F87518C4DD3600B2BF32 /* DD_BalletTermsTableViewController.m in Sources */,
+				D734F87918C4DDE900B2BF32 /* Reachability.m in Sources */,
+				D734F88018C4E03C00B2BF32 /* Term.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D734F85318C3CB0800B2BF32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D734F86618C3CB0800B2BF32 /* Dance_DictionaryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D734F85E18C3CB0800B2BF32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D734F83618C3CB0800B2BF32 /* Dance Dictionary */;
+			targetProxy = D734F85D18C3CB0800B2BF32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D734F84518C3CB0800B2BF32 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D734F84618C3CB0800B2BF32 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D734F86218C3CB0800B2BF32 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D734F86318C3CB0800B2BF32 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D734F86718C3CB0800B2BF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D734F86818C3CB0800B2BF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D734F86A18C3CB0800B2BF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dance Dictionary/Dance Dictionary-Prefix.pch";
+				INFOPLIST_FILE = "Dance Dictionary/Dance Dictionary-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D734F86B18C3CB0800B2BF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dance Dictionary/Dance Dictionary-Prefix.pch";
+				INFOPLIST_FILE = "Dance Dictionary/Dance Dictionary-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D734F86D18C3CB0800B2BF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Dance Dictionary.app/Dance Dictionary";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dance Dictionary/Dance Dictionary-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Dance DictionaryTests/Dance DictionaryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D734F86E18C3CB0800B2BF32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Dance Dictionary.app/Dance Dictionary";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dance Dictionary/Dance Dictionary-Prefix.pch";
+				INFOPLIST_FILE = "Dance DictionaryTests/Dance DictionaryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D734F83218C3CB0800B2BF32 /* Build configuration list for PBXProject "Dance Dictionary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D734F86718C3CB0800B2BF32 /* Debug */,
+				D734F86818C3CB0800B2BF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D734F86918C3CB0800B2BF32 /* Build configuration list for PBXNativeTarget "Dance Dictionary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D734F86A18C3CB0800B2BF32 /* Debug */,
+				D734F86B18C3CB0800B2BF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D734F86C18C3CB0800B2BF32 /* Build configuration list for PBXNativeTarget "Dance DictionaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D734F86D18C3CB0800B2BF32 /* Debug */,
+				D734F86E18C3CB0800B2BF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D734F84E18C3CB0800B2BF32 /* Dance_Dictionary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D734F84F18C3CB0800B2BF32 /* Dance_Dictionary.xcdatamodel */,
+			);
+			currentVersion = D734F84F18C3CB0800B2BF32 /* Dance_Dictionary.xcdatamodel */;
+			path = Dance_Dictionary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D734F82F18C3CB0800B2BF32 /* Project object */;
+}
