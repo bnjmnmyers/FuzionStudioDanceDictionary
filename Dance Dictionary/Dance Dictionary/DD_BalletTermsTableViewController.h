@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 
-@interface DD_BalletTermsTableViewController : UITableViewController
+@interface DD_BalletTermsTableViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;
@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSSortDescriptor *sort;
 @property (nonatomic, strong) NSArray *sortDescriptors;
 @property (nonatomic, strong) NSArray *fetchedObjects;
+@property (nonatomic, strong) NSMutableArray *filteredFetchedObjects;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @end
