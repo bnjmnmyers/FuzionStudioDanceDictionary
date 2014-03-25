@@ -80,7 +80,7 @@
 	
 	_fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:_fetchRequest managedObjectContext:[self managedObjectContext] sectionNameKeyPath:@"term.stringGroupByFirstInitial" cacheName:nil];
 	
-	_fetchedResultsController.delegate = self;
+	//_fetchedResultsController.delegate = self;
 	
 	return _fetchedResultsController;
 	
@@ -162,7 +162,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	[self performSegueWithIdentifier:@"segueFromBalletTermToDefinition" sender:nil];
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+		[self performSegueWithIdentifier:@"segueFromBalletTermToDefinition" sender:nil];
+    }
     
 }
 
@@ -228,16 +230,26 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
+    if ([[segue identifier] isEqualToString:@"segueFromBalletTermToDefinition"]) {
+//		UIViewController *definitionViewController = [segue destinationViewController];
+//		if(sender == self.searchDisplayController.searchResultsTableView) {
+//            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+//            NSString *destinationTitle = [[_filteredFetchedObjects objectAtIndex:[indexPath row]] term];
+//            [definitionViewController setTitle:destinationTitle];
+//        }
+//        else {
+//            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//            NSString *destinationTitle = [[_fetchedObjects objectAtIndex:[indexPath row]] term];
+//            [definitionViewController setTitle:destinationTitle];
+//        }
+		
+	}}
 
- */
 
 @end
