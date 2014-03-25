@@ -162,7 +162,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	//[self performSegueWithIdentifier:@"segueToLeotardWebView" sender:nil];
+	[self performSegueWithIdentifier:@"segueFromBalletTermToDefinition" sender:nil];
     
 }
 

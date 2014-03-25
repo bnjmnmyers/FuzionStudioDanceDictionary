@@ -26,10 +26,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:@"http://www.youtube.com/watch?v=fDXWW5vX-64"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
-	// Do any additional setup after loading the view.
+	[self embedYouTube];
+	_webView.scrollView.scrollEnabled = NO;
+	_webView.scrollView.bounces = NO;
+}
+
+-(void)embedYouTube{
+	
+	NSString *embedHTML = @"<iframe width=\"1180\" height=\"786\" src=\"http://www.youtube.com/embed/59Ct83OX3I0\" frameborder=\"0\" allowfullscreen></iframe>";
+	
+	[_webView loadHTMLString:embedHTML baseURL:nil];
+	[self.view addSubview:_webView];
 }
 
 - (void)didReceiveMemoryWarning
