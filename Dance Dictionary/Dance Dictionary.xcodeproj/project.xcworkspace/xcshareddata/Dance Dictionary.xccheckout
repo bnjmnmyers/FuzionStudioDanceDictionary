@@ -5,19 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>DD175781-FD91-49FA-BAD0-1CD6712A0145</string>
+	<string>3D2B7B9E-D84A-4F1A-AFC9-7E9ECC3244E8</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Dance Dictionary</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>EFECA0F3-577A-43D1-A4FB-401F12019395</key>
+		<key>CBBFF5E8-66F4-4000-ACC3-CFE83228504B</key>
 		<string>https://github.com/bnjmnmyers/FuzionStudioDanceDictionary.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Dance Dictionary/Dance Dictionary.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>EFECA0F3-577A-43D1-A4FB-401F12019395</key>
+
+		<key>CBBFF5E8-66F4-4000-ACC3-CFE83228504B</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +26,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>EFECA0F3-577A-43D1-A4FB-401F12019395</string>
+	<string>CBBFF5E8-66F4-4000-ACC3-CFE83228504B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>EFECA0F3-577A-43D1-A4FB-401F12019395</string>
+			<string>CBBFF5E8-66F4-4000-ACC3-CFE83228504B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>FuzionStudioDanceDictionary</string>
 		</dict>
