@@ -43,6 +43,7 @@
 	self.managedObjectContext = [delegate managedObjectContext];
     
     [self loadTerms];
+    _filteredFetchedObjects = [NSMutableArray arrayWithCapacity:[_fetchedObjects count]];
 	
 	NSError *error = nil;
 	if (![[self loadTerms]performFetch:&error]) {
@@ -72,6 +73,10 @@
 	_sortDescriptors = [[NSArray alloc]initWithObjects:_sort, nil];
 	[_fetchRequest setEntity:_entity];
 	[_fetchRequest setSortDescriptors:_sortDescriptors];
+    
+    NSError *error = nil;
+    
+    _fetchedObjects = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
 	
 	_fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:_fetchRequest managedObjectContext:[self managedObjectContext] sectionNameKeyPath:@"term.stringGroupByFirstInitial" cacheName:nil];
 	
@@ -86,13 +91,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return [[self.fetchedResultsController sections]count];
+	//return [[self.fetchedResultsController sections]count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	id <NSFetchedResultsSectionInfo> secInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
-	return [secInfo numberOfObjects];
+//	id <NSFetchedResultsSectionInfo> secInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
+//	return [secInfo numberOfObjects];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [_filteredFetchedObjects count];
+    } else {
+        return [_fetchedObjects count];
+    }
 }
 
 
@@ -107,11 +118,18 @@
 //	}
     
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-	Term *term = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if ( cell == nil ) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+	//Term *term = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Term *term = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        term = [_filteredFetchedObjects objectAtIndex:indexPath.row];
+    } else {
+        term = [_fetchedObjects objectAtIndex:indexPath.row];
+    }
 	cell.textLabel.text = term.term;
-    cell.detailTextLabel.text = @"BOOM";
     
     // Configure the cell...
     return cell;
@@ -124,10 +142,10 @@
 	
 	UILabel *tempLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0,320,32)];
 	//tempLabel.backgroundColor = [UIColor colorWithRed:(112/255.0) green:(18/255.0) blue:(17/255.0) alpha:1.0];
-	//tempLabel.backgroundColor = [UIColor blackColor];
+    tempLabel.backgroundColor = [UIColor darkGrayColor];
 	//tempLabel.shadowColor = [UIColor blackColor];
 	//tempLabel.shadowOffset = CGSizeMake(0,2);
-	//tempLabel.textColor = [UIColor whiteColor]; //here you can change the text color of header.
+	tempLabel.textColor = [UIColor whiteColor]; //here you can change the text color of header.
 	//tempLabel.font = [UIFont fontWithName:@"Helvetica" size:fontSizeForHeaders];
 	//tempLabel.font = [UIFont boldSystemFontOfSize:fontSizeForHeaders];
 	
@@ -146,6 +164,29 @@
 {
 	//[self performSegueWithIdentifier:@"segueToLeotardWebView" sender:nil];
     
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope{
+    [self.filteredFetchedObjects removeAllObjects];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.term contains[c] %@", searchText];
+    _filteredFetchedObjects = [NSMutableArray arrayWithArray:[_fetchedObjects filteredArrayUsingPredicate:predicate]];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    // Tells the table data source to reload when text changes
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // Tells the table data source to reload when scope bar selection changes
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
 }
 
 /*

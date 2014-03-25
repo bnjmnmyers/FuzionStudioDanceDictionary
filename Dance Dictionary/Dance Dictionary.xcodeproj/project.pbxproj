@@ -28,6 +28,7 @@
 		D734F87918C4DDE900B2BF32 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F87818C4DDE900B2BF32 /* Reachability.m */; };
 		D734F87D18C4DE9A00B2BF32 /* DD_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F87C18C4DE9A00B2BF32 /* DD_MainViewController.m */; };
 		D734F88018C4E03C00B2BF32 /* Term.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F87F18C4E03C00B2BF32 /* Term.m */; };
+		D7C7674E18DDDFB900170C2A /* DD_DefinitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C7674D18DDDFB900170C2A /* DD_DefinitionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		D734F87C18C4DE9A00B2BF32 /* DD_MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_MainViewController.m; sourceTree = "<group>"; };
 		D734F87E18C4E03C00B2BF32 /* Term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Term.h; sourceTree = "<group>"; };
 		D734F87F18C4E03C00B2BF32 /* Term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Term.m; sourceTree = "<group>"; };
+		D7C7674C18DDDFB900170C2A /* DD_DefinitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DD_DefinitionViewController.h; sourceTree = "<group>"; };
+		D7C7674D18DDDFB900170C2A /* DD_DefinitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_DefinitionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 				D734F84C18C3CB0800B2BF32 /* DD_AppDelegate.m */,
 				D734F87318C4DD3600B2BF32 /* DD_BalletTermsTableViewController.h */,
 				D734F87418C4DD3600B2BF32 /* DD_BalletTermsTableViewController.m */,
+				D7C7674C18DDDFB900170C2A /* DD_DefinitionViewController.h */,
+				D7C7674D18DDDFB900170C2A /* DD_DefinitionViewController.m */,
 				D734F87B18C4DE9A00B2BF32 /* DD_MainViewController.h */,
 				D734F87C18C4DE9A00B2BF32 /* DD_MainViewController.m */,
 			);
@@ -308,6 +313,7 @@
 				D734F87518C4DD3600B2BF32 /* DD_BalletTermsTableViewController.m in Sources */,
 				D734F87918C4DDE900B2BF32 /* Reachability.m in Sources */,
 				D734F88018C4E03C00B2BF32 /* Term.m in Sources */,
+				D7C7674E18DDDFB900170C2A /* DD_DefinitionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +516,7 @@
 				D734F86B18C3CB0800B2BF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D734F86C18C3CB0800B2BF32 /* Build configuration list for PBXNativeTarget "Dance DictionaryTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +525,7 @@
 				D734F86E18C3CB0800B2BF32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
