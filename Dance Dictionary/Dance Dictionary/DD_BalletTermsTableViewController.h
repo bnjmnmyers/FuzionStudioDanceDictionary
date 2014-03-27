@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSArray *sortDescriptors;
 @property (nonatomic, strong) NSArray *fetchedObjects;
 @property (nonatomic, strong) NSMutableArray *filteredFetchedObjects;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @end

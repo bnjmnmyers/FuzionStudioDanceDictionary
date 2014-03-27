@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Term.h"
 
 @interface DD_DefinitionViewController : UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
+
+@property (strong, nonatomic) Term *currentTerm;
+
+@property (strong, nonatomic) IBOutlet UILabel *tfTerm;
+@property (strong, nonatomic) IBOutlet UILabel *tfPronunciation;
+@property (strong, nonatomic) IBOutlet UILabel *tfOrigin;
 
 @end

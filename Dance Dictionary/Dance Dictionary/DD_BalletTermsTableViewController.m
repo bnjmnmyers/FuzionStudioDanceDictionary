@@ -7,6 +7,7 @@
 //
 
 #import "DD_BalletTermsTableViewController.h"
+#import "DD_DefinitionViewController.h"
 #import "Term.h"
 
 @interface DD_BalletTermsTableViewController ()
@@ -79,8 +80,6 @@
     _fetchedObjects = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
 	
 	_fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:_fetchRequest managedObjectContext:[self managedObjectContext] sectionNameKeyPath:@"term.stringGroupByFirstInitial" cacheName:nil];
-	
-	//_fetchedResultsController.delegate = self;
 	
 	return _fetchedResultsController;
 	
@@ -237,17 +236,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"segueFromBalletTermToDefinition"]) {
-//		UIViewController *definitionViewController = [segue destinationViewController];
-//		if(sender == self.searchDisplayController.searchResultsTableView) {
-//            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-//            NSString *destinationTitle = [[_filteredFetchedObjects objectAtIndex:[indexPath row]] term];
-//            [definitionViewController setTitle:destinationTitle];
-//        }
-//        else {
-//            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//            NSString *destinationTitle = [[_fetchedObjects objectAtIndex:[indexPath row]] term];
-//            [definitionViewController setTitle:destinationTitle];
-//        }
+		DD_DefinitionViewController *dvc = [segue destinationViewController];
+		Term *selectedTerm = nil;
+		if ([self.searchDisplayController isActive])
+		{
+			_indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+			selectedTerm = [_filteredFetchedObjects objectAtIndex:_indexPath.row];
+		} else {
+			_indexPath = [self.tableView indexPathForSelectedRow];
+			selectedTerm = [_fetchedObjects objectAtIndex:_indexPath.row];
+		}
+		dvc.currentTerm = selectedTerm;
 		
 	}}
 

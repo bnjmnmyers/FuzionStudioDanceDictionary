@@ -27,16 +27,25 @@
 {
     [super viewDidLoad];
 	[self embedYouTube];
+	[self populateFields];
+	
 	_webView.scrollView.scrollEnabled = NO;
 	_webView.scrollView.bounces = NO;
 }
 
--(void)embedYouTube{
-	
+- (void)embedYouTube
+{
 	NSString *embedHTML = @"<iframe width=\"1180\" height=\"786\" src=\"http://www.youtube.com/embed/59Ct83OX3I0\" frameborder=\"0\" allowfullscreen></iframe>";
 	
 	[_webView loadHTMLString:embedHTML baseURL:nil];
 	[self.view addSubview:_webView];
+}
+
+- (void)populateFields
+{
+	_tfTerm.text = _currentTerm.term;
+	_tfPronunciation.text = [NSString stringWithFormat:@"[%@]", _currentTerm.pronunciation];
+	_tfOrigin.text = _currentTerm.origin;
 }
 
 - (void)didReceiveMemoryWarning
