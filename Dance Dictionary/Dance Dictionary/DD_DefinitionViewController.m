@@ -46,6 +46,7 @@
 	_tfTerm.text = _currentTerm.term;
 	_tfPronunciation.text = [NSString stringWithFormat:@"[%@]", _currentTerm.pronunciation];
 	_tfOrigin.text = _currentTerm.origin;
+	_tvDefinition.text = _currentTerm.definition;
 }
 
 - (void)didReceiveMemoryWarning

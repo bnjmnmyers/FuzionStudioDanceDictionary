@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Term.h"
 
-@interface DD_DefinitionViewController : UIViewController <UIWebViewDelegate>
+@interface DD_DefinitionViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 
@@ -18,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *tfTerm;
 @property (strong, nonatomic) IBOutlet UILabel *tfPronunciation;
 @property (strong, nonatomic) IBOutlet UILabel *tfOrigin;
+@property (strong, nonatomic) IBOutlet UITextView *tvDefinition;
 
 @end
