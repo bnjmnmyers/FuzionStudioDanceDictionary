@@ -42,15 +42,13 @@
     
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
-    
-    [self loadTerms];
-    _filteredFetchedObjects = [NSMutableArray arrayWithCapacity:[_fetchedObjects count]];
 	
 	NSError *error = nil;
 	if (![[self loadTerms]performFetch:&error]) {
 		NSLog(@"An error has occurred: %@", error);
 		abort();
 	}
+    _filteredFetchedObjects = [NSMutableArray arrayWithCapacity:[_fetchedObjects count]];
 	
 	[self.tableView reloadData];
 }
@@ -90,19 +88,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	//return [[self.fetchedResultsController sections]count];
-    return 1;
+	return [[self.fetchedResultsController sections]count];
+    //return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//	id <NSFetchedResultsSectionInfo> secInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
-//	return [secInfo numberOfObjects];
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [_filteredFetchedObjects count];
-    } else {
-        return [_fetchedObjects count];
-    }
+	return [[[_fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
 
@@ -123,11 +115,8 @@
     }
 	//Term *term = [self.fetchedResultsController objectAtIndexPath:indexPath];
     Term *term = nil;
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        term = [_filteredFetchedObjects objectAtIndex:indexPath.row];
-    } else {
-        term = [_fetchedObjects objectAtIndex:indexPath.row];
-    }
+	
+	term = [_fetchedResultsController objectAtIndexPath:indexPath];
 	cell.textLabel.text = term.term;
     
     // Configure the cell...
@@ -167,28 +156,46 @@
     
 }
 
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope{
-    [self.filteredFetchedObjects removeAllObjects];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.term contains[c] %@", searchText];
-    _filteredFetchedObjects = [NSMutableArray arrayWithArray:[_fetchedObjects filteredArrayUsingPredicate:predicate]];
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([searchText length] == 0) {
+        _fetchedResultsController = nil;
+    }
+    else {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"term contains[cd] %@", searchText];
+        [[_fetchedResultsController fetchRequest] setPredicate:predicate];
+    }
+	
+    NSError *error;
+    if (![[self loadTerms] performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+	
+    [[self tableView] reloadData];
 }
 
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    // Tells the table data source to reload when text changes
-    [self filterContentForSearchText:searchString scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    // Return YES to cause the search result table view to be reloaded.
-    return YES;
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    // Tells the table data source to reload when scope bar selection changes
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    // Return YES to cause the search result table view to be reloaded.
-    return YES;
-}
+//- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope{
+//    [self.filteredFetchedObjects removeAllObjects];
+//    
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.term contains[c] %@", searchText];
+//    _filteredFetchedObjects = [NSMutableArray arrayWithArray:[_fetchedObjects filteredArrayUsingPredicate:predicate]];
+//}
+//
+//-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+//    // Tells the table data source to reload when text changes
+//    [self filterContentForSearchText:searchString scope:
+//     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+//    // Return YES to cause the search result table view to be reloaded.
+//    return YES;
+//}
+//
+//-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+//    // Tells the table data source to reload when scope bar selection changes
+//    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+//     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+//    // Return YES to cause the search result table view to be reloaded.
+//    return YES;
+//}
 
 /*
 // Override to support conditional editing of the table view.
@@ -238,14 +245,9 @@
     if ([[segue identifier] isEqualToString:@"segueFromBalletTermToDefinition"]) {
 		DD_DefinitionViewController *dvc = [segue destinationViewController];
 		Term *selectedTerm = nil;
-		if ([self.searchDisplayController isActive])
-		{
-			_indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-			selectedTerm = [_filteredFetchedObjects objectAtIndex:_indexPath.row];
-		} else {
-			_indexPath = [self.tableView indexPathForSelectedRow];
-			selectedTerm = [_fetchedObjects objectAtIndex:_indexPath.row];
-		}
+		
+		_indexPath = [self.tableView indexPathForSelectedRow];
+		selectedTerm = [_fetchedObjects objectAtIndex:_indexPath.row];
 		dvc.currentTerm = selectedTerm;
 		
 	}}
