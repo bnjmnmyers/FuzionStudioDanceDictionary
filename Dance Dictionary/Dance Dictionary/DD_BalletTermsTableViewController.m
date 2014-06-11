@@ -9,9 +9,12 @@
 #import "DD_BalletTermsTableViewController.h"
 #import "DD_DefinitionViewController.h"
 #import "Term.h"
+#import "DataHandler.h"
 
 @interface DD_BalletTermsTableViewController ()
-
+{
+    DataHandler *dataHandler;
+}
 @end
 
 @implementation NSString (FetchedGroupByString)
@@ -43,8 +46,10 @@
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
 	
+    dataHandler = [[DataHandler alloc] init];
+    
 	NSError *error = nil;
-	if (![[self loadTerms]performFetch:&error]) {
+	if (![[dataHandler loadTerms]performFetch:&error]) {
 		NSLog(@"An error has occurred: %@", error);
 		abort();
 	}
@@ -59,41 +64,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSFetchedResultsController *) loadTerms
-{
-	if (_fetchedResultsController != nil)
-	{
-		return _fetchedResultsController;
-	}
-	
-	_fetchRequest = [[NSFetchRequest alloc]init];
-	_entity = [NSEntityDescription entityForName:@"Term" inManagedObjectContext:[self managedObjectContext]];
-	_sort = [NSSortDescriptor sortDescriptorWithKey:@"term" ascending:YES];
-	_sortDescriptors = [[NSArray alloc]initWithObjects:_sort, nil];
-	[_fetchRequest setEntity:_entity];
-	[_fetchRequest setSortDescriptors:_sortDescriptors];
-    
-    NSError *error = nil;
-    
-    _fetchedObjects = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
-	
-	_fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:_fetchRequest managedObjectContext:[self managedObjectContext] sectionNameKeyPath:@"term.stringGroupByFirstInitial" cacheName:nil];
-	
-	return _fetchedResultsController;
-	
-	[self.tableView reloadData];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return [[self.fetchedResultsController sections]count];
+	return [[dataHandler.fetchedResultsController sections]count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [[[_fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+	return [[[dataHandler.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
 
@@ -114,7 +94,7 @@
     }
     Term *term = nil;
 	
-	term = [_fetchedResultsController objectAtIndexPath:indexPath];
+	term = [dataHandler.fetchedResultsController objectAtIndexPath:indexPath];
 	cell.textLabel.text = term.term;
     
     // Configure the cell...
@@ -136,7 +116,7 @@
 	//tempLabel.font = [UIFont boldSystemFontOfSize:fontSizeForHeaders];
 	
 	NSString *sectionTitle;
-	sectionTitle = [[[self.fetchedResultsController sections]objectAtIndex:section]name];
+	sectionTitle = [[[dataHandler.fetchedResultsController sections]objectAtIndex:section]name];
 	
 	tempLabel.text = [NSString stringWithFormat:@"  %@", sectionTitle];
 	
@@ -157,15 +137,15 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if ([searchText length] == 0) {
-        _fetchedResultsController = nil;
+        dataHandler.fetchedResultsController = nil;
     }
     else {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"term contains[cd] %@", searchText];
-        [[_fetchedResultsController fetchRequest] setPredicate:predicate];
+        [[dataHandler.fetchedResultsController fetchRequest] setPredicate:predicate];
     }
 	
     NSError *error;
-    if (![[self loadTerms] performFetch:&error]) {
+    if (![[dataHandler loadTerms] performFetch:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
 	
@@ -220,9 +200,13 @@
     if ([[segue identifier] isEqualToString:@"segueFromBalletTermToDefinition"]) {
 		DD_DefinitionViewController *dvc = [segue destinationViewController];
 		Term *selectedTerm = nil;
-		
-		_indexPath = [self.tableView indexPathForSelectedRow];
-		selectedTerm = [_fetchedObjects objectAtIndex:_indexPath.row];
+		if ([self.searchDisplayController isActive])
+		{
+            _indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+		} else {
+            _indexPath = [self.tableView indexPathForSelectedRow];
+        }
+        selectedTerm = [dataHandler.fetchedResultsController objectAtIndexPath:_indexPath];
 		dvc.currentTerm = selectedTerm;
 		
 	}}

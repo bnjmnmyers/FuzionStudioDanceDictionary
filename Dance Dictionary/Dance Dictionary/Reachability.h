@@ -77,6 +77,7 @@ typedef void (^NetworkUnreachable)(Reachability * reachability);
 
 
 @property (nonatomic, assign) BOOL reachableOnWWAN;
+@property (nonatomic, assign) BOOL isConnected;
 
 +(Reachability*)reachabilityWithHostname:(NSString*)hostname;
 +(Reachability*)reachabilityForInternetConnection;
@@ -100,6 +101,8 @@ typedef void (^NetworkUnreachable)(Reachability * reachability);
 -(BOOL)isConnectionOnDemand;
 // Is user intervention required?
 -(BOOL)isInterventionRequired;
+-(BOOL)setConnectionSatus:(int)status;
+-(BOOL)checkConnection;
 
 -(NetworkStatus)currentReachabilityStatus;
 -(SCNetworkReachabilityFlags)reachabilityFlags;

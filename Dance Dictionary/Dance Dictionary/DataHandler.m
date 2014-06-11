@@ -1,54 +1,20 @@
 //
-//  DD_MainViewController.m
+//  DataHandler.m
 //  Dance Dictionary
 //
-//  Created by Benjamin Myers on 3/3/14.
+//  Created by Benjamin Myers on 6/10/14.
 //  Copyright (c) 2014 AppGuys. All rights reserved.
 //
 
-#import "DD_MainViewController.h"
-#import "Reachability.h"
+#import "DataHandler.h"
 #import "Term.h"
 
-@interface DD_MainViewController ()
-{
-    Reachability *internetReachable;
-}
-@end
-
-@implementation DD_MainViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-	id delegate = [[UIApplication sharedApplication]delegate];
-	self.managedObjectContext = [delegate managedObjectContext];
-    
-    _isConnected = TRUE;
-    [self checkOnlineConnection];
-    
-    if (_isConnected == TRUE) {
-        [self getTerms];
-	}
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+@implementation DataHandler
 
 - (void)getTerms {
+    id delegate = [[UIApplication sharedApplication]delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
     [self clearEntity:@"Term"];
     
     NSString *urlString = [NSString stringWithFormat:@"http://www.fuzionstudio.net/test/includes/_appJSON.php?getTerms=1"];
@@ -68,10 +34,43 @@
 		newTerm.pronunciation = NSLocalizedString([diction objectForKey:@"pronunciation"], nil);
 		newTerm.termID = [NSNumber numberWithInt:[NSLocalizedString([diction objectForKey:@"id"], nil) intValue]];
 	}
+    [self.managedObjectContext save:nil];
+    
+}
+
+
+
+- (NSFetchedResultsController *) loadTerms
+{
+    id delegate = [[UIApplication sharedApplication]delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
+	if (_fetchedResultsController != nil)
+	{
+		return _fetchedResultsController;
+	}
+	
+	_fetchRequest = [[NSFetchRequest alloc]init];
+	_entity = [NSEntityDescription entityForName:@"Term" inManagedObjectContext:[self managedObjectContext]];
+	_sort = [NSSortDescriptor sortDescriptorWithKey:@"term" ascending:YES];
+	_sortDescriptors = [[NSArray alloc]initWithObjects:_sort, nil];
+	[_fetchRequest setEntity:_entity];
+	[_fetchRequest setSortDescriptors:_sortDescriptors];
+    
+    NSError *error = nil;
+    
+    _fetchedObjects = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
+	
+	_fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:_fetchRequest managedObjectContext:[self managedObjectContext] sectionNameKeyPath:@"term.stringGroupByFirstInitial" cacheName:nil];
+	
+	return _fetchedResultsController;
 }
 
 - (void)clearEntity:(NSString *)entity
 {
+    id delegate = [[UIApplication sharedApplication]delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
 	_fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:entity inManagedObjectContext:[self managedObjectContext]];
 	
@@ -88,27 +87,6 @@
 	if (![[self managedObjectContext] save:&saveError]) {
 		NSLog(@"An error has occurred: %@", saveError);
 	}
-}
-
-- (void)checkOnlineConnection {
-    
-    internetReachable = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
-    // Internet is not reachable
-    // NOTE - change "reachableBlock" to "unreachableBlock"
-    
-    internetReachable.unreachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = FALSE;
-    };
-	
-	internetReachable.reachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = TRUE;
-    };
-    
-    [internetReachable startNotifier];
-    
 }
 
 @end

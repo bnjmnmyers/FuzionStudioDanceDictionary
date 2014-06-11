@@ -524,4 +524,20 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     return description;
 }
 
+-(BOOL) setConnectionSatus:(int)status
+{
+    return status;
+}
+
+- (BOOL) checkConnection
+{
+    if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWiFi || [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWWAN)
+    {
+        _isConnected = TRUE;
+    } else {
+        _isConnected = FALSE;
+    }
+    return _isConnected;
+}
+
 @end

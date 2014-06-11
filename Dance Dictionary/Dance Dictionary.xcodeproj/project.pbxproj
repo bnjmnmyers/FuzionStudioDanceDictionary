@@ -28,6 +28,7 @@
 		D734F87918C4DDE900B2BF32 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F87818C4DDE900B2BF32 /* Reachability.m */; };
 		D734F87D18C4DE9A00B2BF32 /* DD_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F87C18C4DE9A00B2BF32 /* DD_MainViewController.m */; };
 		D734F88018C4E03C00B2BF32 /* Term.m in Sources */ = {isa = PBXBuildFile; fileRef = D734F87F18C4E03C00B2BF32 /* Term.m */; };
+		D7406EDB1947F1F70074D2AF /* DataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D7406EDA1947F1F70074D2AF /* DataHandler.m */; };
 		D7C7674E18DDDFB900170C2A /* DD_DefinitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C7674D18DDDFB900170C2A /* DD_DefinitionViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,8 @@
 		D734F87C18C4DE9A00B2BF32 /* DD_MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_MainViewController.m; sourceTree = "<group>"; };
 		D734F87E18C4E03C00B2BF32 /* Term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Term.h; sourceTree = "<group>"; };
 		D734F87F18C4E03C00B2BF32 /* Term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Term.m; sourceTree = "<group>"; };
+		D7406ED91947F1F70074D2AF /* DataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHandler.h; sourceTree = "<group>"; };
+		D7406EDA1947F1F70074D2AF /* DataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHandler.m; sourceTree = "<group>"; };
 		D7C7674C18DDDFB900170C2A /* DD_DefinitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DD_DefinitionViewController.h; sourceTree = "<group>"; };
 		D7C7674D18DDDFB900170C2A /* DD_DefinitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_DefinitionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +142,7 @@
 				D734F84E18C3CB0800B2BF32 /* Dance_Dictionary.xcdatamodeld */,
 				D734F87618C4DD3D00B2BF32 /* Controllers */,
 				D734F88118C4E04500B2BF32 /* Entities */,
+				D7406ED81947F1DB0074D2AF /* Models */,
 				D734F87A18C4DDEE00B2BF32 /* Utilities */,
 				D734F84318C3CB0800B2BF32 /* Supporting Files */,
 			);
@@ -206,6 +210,15 @@
 				D734F87F18C4E03C00B2BF32 /* Term.m */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		D7406ED81947F1DB0074D2AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7406ED91947F1F70074D2AF /* DataHandler.h */,
+				D7406EDA1947F1F70074D2AF /* DataHandler.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D734F84D18C3CB0800B2BF32 /* DD_AppDelegate.m in Sources */,
+				D7406EDB1947F1F70074D2AF /* DataHandler.m in Sources */,
 				D734F87D18C4DE9A00B2BF32 /* DD_MainViewController.m in Sources */,
 				D734F84918C3CB0800B2BF32 /* main.m in Sources */,
 				D734F85018C3CB0800B2BF32 /* Dance_Dictionary.xcdatamodeld in Sources */,
